@@ -1,0 +1,105 @@
+<div class="body">
+
+    <div *ngIf="!forgotPasswordClick" class="container-box">
+        <a class="m-1" href="http://localhost:4200">
+            <p>HOME</p>     
+        </a>
+        <!-- image -->
+        <div class="container-image">
+            <img src="../assets/signup.png">
+        </div>
+        <!-- form -->
+        <mat-tab-group mat-align-tabs="center" class=container-form>
+            <mat-tab label="Sign up" class="tab-group">
+
+                <form [formGroup]="signUpForm" (ngSubmit)="signUp()">
+
+                    <mat-form-field appearance="fill" class="input">
+                        <mat-label>Name</mat-label>
+                        <input matInput formControlName="name" required>
+                    </mat-form-field>
+                    <br>
+
+                    <mat-form-field appearance="fill">
+                        <mat-label>Email</mat-label>
+                        <input matInput type="email" formControlName="email" required ngModel [email]="true">
+                    </mat-form-field>
+                    <br>
+
+
+                    <mat-form-field appearance="fill">
+                        <mat-label>Enter your password</mat-label>
+                        <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" required>
+                        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+                    </mat-form-field>                    
+                    <div class="buttons" *ngIf="!isLoading">
+
+
+                        <button (click)="clearFieldsSignUp()" class="button-clear" type="button" mat-button>Clear fields</button>
+                        <button type="submit" mat-raised-button [disabled]="!signUpForm.valid" class="button-save">Save</button>
+                    </div>
+                </form>
+
+            </mat-tab>
+            <mat-tab label="Login">
+
+
+                <form [formGroup]="loginForm" (ngSubmit)="login()">
+
+
+                    <mat-form-field appearance="fill">
+                        <mat-label>Email</mat-label>
+                        <input matInput type="email" formControlName="email" required ngModel [email]="true">
+                    </mat-form-field>
+                    <br>
+
+
+                    <mat-form-field appearance="fill">
+                        <mat-label>Enter your password</mat-label>
+                        <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+                        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide" required>
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+                    </mat-form-field>
+                    <div>
+                        <button mat-button color="warn" [disabled]="!loginForm.valid" (click)="forgotPassword()" #tooltip="matTooltip" matTooltip="Just fill out the email field and click here to send a new password to your email">Forgot your password?</button>
+                        <button mat-raised-button class="button-save" [disabled]="!loginForm.valid">Save</button>
+                    </div>
+                </form>
+            </mat-tab>
+        </mat-tab-group>
+    </div>
+
+    <div *ngIf="forgotPasswordClick" class="container-box ">
+            
+        <div class="container">
+            <div  *ngIf="!ckeckCode" class="col-md-4 mt-5 mx-auto">
+                <form  [formGroup]="checkCodeForm" (ngSubmit)="checkCodeSentBy()">  
+                    <div class="mb-3">
+                        <h3> Entrez le code de sécurité </h3>
+                        <hr>
+                        <label for="code" class="form-label">Créez un mot de passe d’au moins 6 caractères. Un mot de passe fort est une combinaison de lettres, de chiffres et de signes de ponctuation.</label>
+                        <input type="number" class="form-control"  placeholder="code secret" formControlName="code" required ngModel [code]="true">
+                    </div>
+                    <button type="submit" class="btn btn-primary" [disabled]="!checkCodeForm.valid">Rechercher </button>
+                </form>
+            </div>
+
+            <div  *ngIf="ckeckCode" class="col-md-4 mt-5 mx-auto">
+                <form  [formGroup]="changePasswordForgotForm"  (ngSubmit)="changePassword()">
+                    <div class="mb-3">
+                        <h3> Choisissez un nouveau mot de passe</h3>
+                        <hr>
+                        <label for="pwd" class="form-label"> Merci de vérifier dans vos e-mails que vous avez reçu un message avec votre code. Celui-ci est composé de 6 chiffres.</label>
+                        <input type="password" class="form-control"  placeholder="password" formControlName="pwd" required ngModel [pwd]="true">
+                    </div>
+                    <button type="submit" class="btn btn-primary" [disabled]="!changePasswordForgotForm.valid">Rechercher </button>
+                </form>
+            </div>
+        </div>
+       
+    </div>
+</div>
+        

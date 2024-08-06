@@ -1,0 +1,79 @@
+<headerPage></headerPage>
+<div class="container ">
+   <div class="row">
+    <div class="col-3" >
+        <h4> <i class="fa fa-bars"></i> Toutes nos rayons </h4>
+        <mat-selection-list #shoes [multiple]="false">
+          <mat-list-option *ngFor="let shoe of typesOfShoes" [value]="shoe" (click)="choiceOfMenu(shoe)">
+            {{shoe}}
+          </mat-list-option>
+        </mat-selection-list>
+    </div>
+    <div class="col-9">
+        <mat-carousel
+            timings="250ms ease-in"
+            [autoplay]="true"
+            interval="6000"
+            color="accent"
+            maxWidth="auto"
+            proportion="45"
+            slides="4"
+            [loop]="true"
+            [hideArrows]="false"
+            [hideIndicators]="false"
+            [useKeyboard]="true"
+            [useMouseWheel]="false"
+            orientation="ltr"
+        >
+            <mat-carousel-slide
+                #matCarouselSlide
+                *ngFor="let slide of slides; let i = index"
+                [image]="slide.image"
+                overlayColor="#00000040"
+                [hideOverlay]="false"
+            ></mat-carousel-slide>
+        </mat-carousel>
+    </div>
+
+   </div>
+   <h3 class="mt-5"> Les 3 Top Meilleures ventes </h3>
+   <hr class="my-3">
+   <div class="row justify-content-around">
+      <div class="col-md-3">
+        <div class="card" style="width: 18rem;">
+          <img class="card-img-top" src="../../../../assets/marche1.jpg" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title"> Marcher vers son essentiel </h5>
+            <p class="card-text">Voyage intérieur sur le chemin de Compostelle            </p>
+            <a href="#" class="btn btn-primary">Ajouter au Panier</a>
+          </div>
+        </div>
+      </div> 
+      <div class="col-md-3">
+        <div class="card" style="width: 18rem;">
+          <img class="card-img-top" src="../../../../assets/web.jpg" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title"> Réussir son référencement web
+            </h5>
+            <p class="card-text">Stratégies et techniques SEO - Edition 2022-2023
+
+            </p>
+            <a href="#" class="btn btn-primary">Ajouter au Panier</a>
+          </div>
+        </div>
+      </div> 
+      <div class="col-md-3">
+        <div class="card" style="width: 18rem;">
+          <img class="card-img-top" src="../../../../assets/terre.jpg" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title"> La géopolitique, tout simplement</h5>
+            <p class="card-text">Comprendre le monde et les relations internationales </p>
+            <a href="#" class="btn btn-primary">Ajouter au Panier</a>
+          </div>
+        </div>
+      </div> 
+   </div>
+</div>
+<Footer></Footer>
+
+

@@ -1,0 +1,40 @@
+.ss {
+    background-color: white;
+    height: 8em;
+}
+
+.bb {
+    color:  rgb(149, 151, 241);
+}
+form {
+    width: 65%;
+    height: 4em;
+
+}
+
+form>input {
+    width: 80%;
+    height: 3em;
+}
+
+form>button{
+    width: 20%;
+    height: 3em;
+}
+
+
+@media (max-width: 450px) {
+    form {
+        width: 40%;
+    }
+  
+}
+
+
+
+
+
+.midlle {
+    margin-left: auto;
+    margin-right: auto;
+}

@@ -1,0 +1,88 @@
+
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+
+.fontSIZE {
+    font-size: 1.4em;
+}
+
+
+
+.box {
+    width: 60%;
+    height: 80vh;
+    margin: 8% 25%;
+    background: #fff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 25px;
+    box-sizing: border-box;
+    overflow: hidden;
+    text-align: left;
+}
+
+.box mat-form-field {
+    width: 90%;
+    display: block;
+    justify-content: left;
+    align-items: flex-start;
+    margin-left: 5%;
+}
+
+.box h2 {
+    text-align: center;
+    margin: 5%;
+}
+
+.box button {
+    margin: 5%;
+    width: 90%;
+    font-size: 1.2em;
+    height: 5vh;
+}
+
+
+h2 {
+    size: 33em;
+}
+
+
+.center {
+    margin-left: 1.5em;
+}
+
+.center-text {
+    align-content: center;
+    margin-left: 0.5em;   
+}
+
+.container {
+    margin: auto;
+    margin-top: 5%;
+}
+
+
+.demo-table {
+    width: 100%;
+  }
+  
+  .mat-row .mat-cell {
+    border-bottom: 1px solid transparent;
+    border-top: 1px solid transparent;
+    cursor: pointer;
+  }
+  
+  .mat-row:hover .mat-cell {
+    border-color: currentColor;
+  }
+  
+  .demo-row-is-clicked {
+    font-weight: bold;
+  }

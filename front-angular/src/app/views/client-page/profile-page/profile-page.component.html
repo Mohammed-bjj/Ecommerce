@@ -1,0 +1,104 @@
+<div class="wrapper">
+    <div class="sidebar">
+        <h2 class="fontSIZE" >Mes Informations Personnelles</h2>
+        <ul>
+            <li>  <a href="http://localhost:4200" >
+                    <i class="fas fa-home" ></i> Home
+                  </a>
+            </li>
+            <li>  <a  (click)="makeProfileVisible()"><i class="fas fa-user" routerLinkActive="active"></i> Profile </a></li>
+            <li>  <a  (click)="makeAddressVisible()"  ><i class="fas fa-address-card"></i> Adresse </a></li>
+            <li>  <a  ><i class="fas fa-credit-card"></i> carte bancaire </a></li>
+            <li>  <a (click)="logout()"><i class="fas fa-power-off" ></i> Logout</a></li>
+            k
+        </ul>
+
+
+    </div>
+    <div class="main_content">
+        <router-outlet></router-outlet>
+    </div>
+</div>
+
+
+
+
+
+<div class="box" data-bs-spy="scroll"  data-bs-target="#navbar-example">
+   <div *ngIf="isVisibleUpdateProfle">
+    <h2>Update your profile</h2>
+    <form [formGroup]="updateProfileForme" (ngSubmit)="updateProfile()">
+
+        <mat-form-field appearance="fill" class="input">
+            <mat-label>Name</mat-label>
+            <input matInput required formControlName="name" > 
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Email </mat-label>
+            <input matInput type="email" formControlName="email" required [email]="true"> 
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Enter your password</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" >
+        </mat-form-field>
+
+        <button [disabled]="!updateProfileForme.valid" mat-raised-button class="btn-success">Update profile</button>
+    </form>
+   </div>
+
+
+   <div *ngIf="!isVisibleUpdateProfle">
+    <h2>Update your Address</h2>
+    <form [formGroup]="updateAddressForme" (ngSubmit)="updateAddress()">
+        
+        <mat-form-field appearance="fill">
+            <mat-label> Pays </mat-label>
+            <mat-select formControlName="pays" >
+              <mat-option value="France"> France </mat-option>
+              <mat-option value="Maroc"> Maroc </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="input">
+            <mat-label>Nom et prénom </mat-label>
+            <input matInput required formControlName="fullname" > 
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="input">
+            <mat-label> Adresse postale </mat-label>
+            <input matInput required formControlName="adressPostale" > 
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="input">
+            <mat-label> Ville </mat-label>
+            <input matInput required formControlName="ville" > 
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="input">
+            <mat-label> Code Postal </mat-label>
+            <input matInput type="number" required formControlName="codePostale" > 
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="input">
+            <mat-label> Numéro de téléphone  </mat-label>
+            <input matInput type="number" required formControlName="numTel" > 
+        </mat-form-field>
+       
+     
+   
+
+        <button [disabled]="!updateAddressForme.valid" mat-raised-button class="btn-success">Update Address</button>
+    </form>
+   </div>
+
+  
+
+</div>
+
+
+
+
+
+<!-- <mat-form-field appearance="fill">
+    <mat-label>Enter your password</mat-label>
+    <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" required>
+    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+    </button>
+</mat-form-field> -->
