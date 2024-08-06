@@ -1,0 +1,12 @@
+# vs code
+/front-angular/.vscode
+
+# package dep 
+
+/front-angular/package-lock.json 
+
+# nest back 
+
+/back/dist 
+/back/node_modules 
+/back/package-lock.json
